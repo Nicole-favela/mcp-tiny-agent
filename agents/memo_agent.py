@@ -19,8 +19,18 @@ Actual flow:
 """
 from agno.agent import Agent
 from agno.tools.local_file_system import LocalFileSystemTools
+from agno.os import AgentOS
+from agno.models.ollama import Ollama
+import os
+
+#get the current directory
+current_directory = os.path.dirname(os.path.abspath(__file__))
+memos_dir = os.path.join(current_directory, "memos")
+os.makedirs(memos_dir, exist_ok=True)
+print(f"Memo directory: {memos_dir}")
 
 agent = Agent(
+    model=Ollama(id="llama3.1:8b"),
     instructions=[
         "You are a file management memo assistant that helps save content to local files",
         "Create files with appropriate names and extensions",
@@ -35,7 +45,7 @@ agent = Agent(
 
 agent_os = AgentOS(agents=[agent])
 user_input = input('Enter your memo content: ')
-run_output = agent.run("Save this personal note to a file: {} and output 'memo created' once completed")
+run_output = agent.run(f"Save this personal note to a file: {user_input} and output 'memo created' once completed")
 print(run_output.content)
 
 #agent.print_response("Write a report on trending startups and products.", stream=True)
