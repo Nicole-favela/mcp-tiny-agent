@@ -10,6 +10,8 @@ Specifically, the tool ouput category unauthorized information propagation A6.
 
 ### Getting started:
 1. clone the repo
+2. activate your virtual environment
+3. run `pip install -r requirements.txt` then `fastapi dev agents/memo_agent.py`
 
-2. run:
-`fastapi dev agents/memo_agent.py`
+
+
