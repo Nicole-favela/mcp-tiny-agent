@@ -3,9 +3,10 @@
 This is a small scale implementation of the tool vulnerablity described in <i>When MCP Servers Attack: Taxonomy, Feasibility, and Mitigation</i>.
 Specifically, the tool ouput category unauthorized information propagation A6.
 
-### uses:
+### Uses:
 - llama 3.1
 - Agno multiagent framework
+- Langchain
 
 ### Getting started:
 1. clone the repo
